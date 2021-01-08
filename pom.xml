@@ -11,7 +11,7 @@
 	<groupId>com.menghuanwd</groupId>
 	<artifactId>springboot_learnning</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot_learnning</name>
+	<name>springboot_learning</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
