@@ -10,5 +10,6 @@
 
 * spring-boot-starter-webflux
 
+* mybatis-plus-boot-starter
 
 ##

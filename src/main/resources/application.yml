@@ -1,0 +1,20 @@
+server:
+   port: 8091
+
+# DataSource Config
+spring:
+   datasource:
+      driver-class-name: org.postgresql.Driver
+#      schema: classpath:db/schema-h2.sql
+#      data: classpath:db/data-h2.sql
+      url: jdbc:postgresql://localhost:5432/push
+      username: menghuanwd
+      password: password
+
+mybatis_config_file: mybatis-config.xml
+mapper_path: /mapper/**.xml
+
+# Logger Config
+logging:
+   level:
+      com.baomidou.mybatisplus.samples.quickstart: debug
