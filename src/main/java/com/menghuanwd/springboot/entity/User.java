@@ -2,14 +2,16 @@ package com.menghuanwd.springboot.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 
 @Data
 @TableName(value = "users")
-public class User {
+public class User extends Model<User> {
+    private  static final long serialVersionUID = 1L;
 
-//    @TableId(value = "id", type = IdType.INPUT)
-    private Long id;
+//    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
 
     private String name;
     private Integer age;

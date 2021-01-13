@@ -1,11 +1,11 @@
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
-	id INT NOT NULL,
+	id serial NOT NULL,
 	name VARCHAR(30) NULL DEFAULT NULL,
 	age INT NULL DEFAULT NULL,
 	email VARCHAR(50) NULL DEFAULT NULL,
 	PRIMARY KEY (id)
 );
 
-select * from users
+select * from users;

@@ -15,12 +15,21 @@ spring:
 #mapper_path: /mapper/**.xml
 
 mybatis-plus:
+  type-aliases-package: com.menghuanwd.springboot.entity
   mapper-locations: classpath:/mapper/*Mapper.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+## Logger Config
+#logging:
+#   pattern:
+#      console: '%p%m%n'
+#   level:
+#      com.baomidou.mybatisplus.samples: debug
+#      com.menghuanwd.dao: trace
 
 # Logger Config
 logging:
-   pattern:
-      console: '%p%m%n'
-   level:
-      com.baomidou.mybatisplus.samples: debug
-      com.menghuanwd.dao: trace
+  level:
+    com.baomidou.mybatisplus.samples: debug
