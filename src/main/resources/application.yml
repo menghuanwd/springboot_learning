@@ -16,5 +16,8 @@ mapper_path: /mapper/**.xml
 
 # Logger Config
 logging:
+   pattern:
+      console: '%p%m%n'
    level:
       com.baomidou.mybatisplus.samples.quickstart: debug
+      com.menghuanwd.dao: trace

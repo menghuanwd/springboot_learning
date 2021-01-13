@@ -1,9 +1,11 @@
 package com.menghuanwd.springboot;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@MapperScan("com.menghuanwd.springboot.mapper")
 public class SpringbootLearnningApplication {
 
 	public static void main(String[] args) {

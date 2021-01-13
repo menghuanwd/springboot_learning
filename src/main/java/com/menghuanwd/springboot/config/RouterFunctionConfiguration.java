@@ -1,7 +1,7 @@
 package com.menghuanwd.springboot.config;
 
-import com.menghuanwd.springboot.domain.User;
-import com.menghuanwd.springboot.repository.UserRespository;
+import com.menghuanwd.springboot.entity.User;
+import com.menghuanwd.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,10 +24,10 @@ public class RouterFunctionConfiguration {
      */
     @Bean
     @Autowired
-    public RouterFunction<ServerResponse> personFindAll(UserRespository userRespository) {
+    public RouterFunction<ServerResponse> personFindAll(UserService userService) {
         return RouterFunctions.route(RequestPredicates.GET("/person/find/all"),
                 request -> {
-                    Collection<User> users = userRespository.findAll();
+                    Collection<User> users = userService.findAll();
                     Flux<User> userFlux = Flux.fromIterable(users);
                     return ServerResponse.ok().body(userFlux, User.class);
                 });

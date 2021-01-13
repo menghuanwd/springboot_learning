@@ -1,32 +1,35 @@
 package com.menghuanwd.springboot.controller;
 
-import com.menghuanwd.springboot.domain.User;
-import com.menghuanwd.springboot.repository.UserRespository;
+import com.menghuanwd.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-    private final UserRespository userRespository;
+    private final UserService userService;
 
     @Autowired
-    public UserController(UserRespository userRespository) {
-        this.userRespository = userRespository;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
-    @PostMapping("/person/save")
-    public User save(@RequestParam String name) {
-        System.out.printf(name);
-        User user = new User();
-        user.setName(name);
-
-        if (userRespository.save(user)) {
-            System.out.printf("保存成功 %s\n", user);
-        }
-
-        return user;
+    @GetMapping("/person")
+    public Object list() {
+        return userService.findAll();
     }
+
+//    @PostMapping("/person/save")
+//    public User save(@RequestParam String name) {
+//        System.out.printf(name);
+//        User user = new User();
+//        user.setName(name);
+//
+//        if (userService.save(user)) {
+//            System.out.printf("保存成功 %s\n", user);
+//        }
+//
+//        return user;
+//    }
 
 }
