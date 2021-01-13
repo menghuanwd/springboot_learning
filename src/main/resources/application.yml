@@ -11,13 +11,16 @@ spring:
       username: menghuanwd
       password: password
 
-mybatis_config_file: mybatis-config.xml
-mapper_path: /mapper/**.xml
+#mybatis_config_file: mybatis-config.xml
+#mapper_path: /mapper/**.xml
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
 
 # Logger Config
 logging:
    pattern:
       console: '%p%m%n'
    level:
-      com.baomidou.mybatisplus.samples.quickstart: debug
+      com.baomidou.mybatisplus.samples: debug
       com.menghuanwd.dao: trace
