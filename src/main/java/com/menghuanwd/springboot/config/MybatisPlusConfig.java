@@ -43,4 +43,13 @@ public class MybatisPlusConfig {
         return interceptor;
     }
 
+//    @Bean
+//    public MybatisPlusInterceptor sqlExplainInterceptor(){
+//        MybatisPlusInterceptor sqlExplainInterceptor = new MybatisPlusInterceptor();
+//        List<BlockAttackInnerInterceptor> sqlParserList = new ArrayList<>();
+//        sqlParserList.add(new BlockAttackInnerInterceptor());
+//        sqlExplainInterceptor.setSqlParserList(sqlParserList);
+//        return sqlExplainInterceptor;
+//    }
+
 }
