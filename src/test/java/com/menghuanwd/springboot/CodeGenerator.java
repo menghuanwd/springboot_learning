@@ -7,8 +7,10 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.rules.FileType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
@@ -55,6 +57,7 @@ public class CodeGenerator {
         gc.isActiveRecord();
         gc.setServiceName("%sService");
         gc.setFileOverride(true);
+        gc.isActiveRecord();
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -97,21 +100,19 @@ public class CodeGenerator {
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
-        /*
         cfg.setFileCreate(new IFileCreate() {
             @Override
             public boolean isCreate(ConfigBuilder configBuilder, FileType fileType, String filePath) {
                 // 判断自定义文件夹是否需要创建
-                checkDir("调用默认方法创建的目录，自定义目录用");
-                if (fileType == FileType.MAPPER) {
-                    // 已经生成 mapper 文件判断存在，不想重新生成返回 false
-                    return !new File(filePath).exists();
-                }
+//                checkDir("调用默认方法创建的目录，自定义目录用");
+//                if (fileType == FileType.MAPPER) {
+//                    // 已经生成 mapper 文件判断存在，不想重新生成返回 false
+//                    return !new File(filePath).exists();
+//                }
                 // 允许生成模板文件
                 return true;
             }
         });
-        */
         cfg.setFileOutConfigList(focList);
         mpg.setCfg(cfg);
 
@@ -131,17 +132,21 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-//        strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
-        strategy.setEntityLombokModel(true);
 
+        // 公共父类实体
+        strategy.setSuperEntityClass("com.menghuanwd.springboot.entity.BaseEntity");
+        // 写于父类中的公共字段 新版
+        strategy.setSuperEntityColumns(new String[] {"id","created_at", "updated_at"});
+
+        strategy.setEntityLombokModel(true);
 //        restful json 格式
         strategy.setRestControllerStyle(true);
-        // 公共父类
+//        公共父类Controller
 //        strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
-        // 写于父类中的公共字段
-//        strategy.setSuperEntityColumns("id");
+
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);
+
 
 //        逻辑删除
 //        strategy.setLogicDeleteFieldName("deleted_at");

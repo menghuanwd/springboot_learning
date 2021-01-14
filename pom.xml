@@ -64,12 +64,14 @@
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-generator</artifactId>
 			<version>${mybatis-plus.version}</version>
+			<scope>test</scope>
 		</dependency>
 
-<!--			mybatis-plus 模板引擎	-->
+<!--			mybatis-plus 模板引擎-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 <!--		<dependency>-->
