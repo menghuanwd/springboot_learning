@@ -11,7 +11,7 @@ spring:
 
 #  MybatisPlus Config
 mybatis-plus:
-  type-aliases-package: com.menghuanwd.springboot.entity
+  type-aliases-package: com.menghuanwd.entity
   mapper-locations: classpath:/mapper/*Mapper.xml
   global-config:
     db-config:
@@ -23,4 +23,4 @@ logging:
     console: '%p%m%n'
   level:
     root: warn
-    com.menghuanwd.springboot.dao: trace
+    com.menghuanwd.dao: trace
