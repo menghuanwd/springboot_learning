@@ -31,6 +31,7 @@ public class destroyTests {
     public void deleteByMap() {
         Map<String, Object> map = new HashMap<>();
         map.put("age", 24);
+
         int rows = userMapper.deleteByMap(map);
         System.out.println(rows);
     }
