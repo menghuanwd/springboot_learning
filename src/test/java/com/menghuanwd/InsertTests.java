@@ -6,7 +6,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.menghuanwd.dao.BusinessesDao;
 import com.menghuanwd.dao.UserDao;
+import com.menghuanwd.entity.Businesses;
 import com.menghuanwd.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +24,19 @@ public class InsertTests {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private BusinessesDao businessesDao;
+
+    @Test
+    public void insertBusiness() {
+        Businesses user = new Businesses();
+        user.setName("aaa");
+
+        int rows = businessesDao.insert(user);
+
+        System.out.println(rows);
+    }
 
     @Test
     public void insert() {

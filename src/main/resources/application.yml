@@ -12,10 +12,12 @@ spring:
 #  MybatisPlus Config
 mybatis-plus:
   type-aliases-package: com.menghuanwd.entity
-  mapper-locations: classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath*:/mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto
+      logic-delete-value: NOW()
+      logic-not-delele-value: null
 
 # Logger Config
 logging:

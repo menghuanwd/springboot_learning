@@ -139,7 +139,7 @@ public class CodeGenerator {
             // 公共父类实体
             strategy.setSuperEntityClass("com.menghuanwd.entity.BaseEntity");
             // 写于父类中的公共字段 新版
-            strategy.setSuperEntityColumns(new String[]{"id", "created_at", "updated_at"});
+            strategy.setSuperEntityColumns(new String[]{"id", "created_at", "updated_at", "deleted_at"});
         }
 
         strategy.setEntityLombokModel(true);
@@ -152,7 +152,7 @@ public class CodeGenerator {
         strategy.setControllerMappingHyphenStyle(true);
 
 //        逻辑删除
-//        strategy.setLogicDeleteFieldName("deleted_at");
+        strategy.setLogicDeleteFieldName("deleted_at");
 
 //        填充
         ArrayList<TableFill> tableFills = new ArrayList<TableFill>();

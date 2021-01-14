@@ -1,6 +1,7 @@
 package com.menghuanwd;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.menghuanwd.dao.BusinessesDao;
 import com.menghuanwd.dao.UserDao;
 import com.menghuanwd.entity.User;
 import org.junit.Test;
@@ -19,9 +20,18 @@ public class destroyTests {
     @Autowired
     private UserDao userMapper;
 
+    @Autowired
+    private BusinessesDao businessesDao;
+
+    @Test
+    public void deleteBusinessById() {
+        int rows = businessesDao.deleteById(6);
+
+        System.out.println(rows);
+    }
+
     @Test
     public void deleteById() {
-
         int rows = userMapper.deleteById(1L);
 
         System.out.println(rows);

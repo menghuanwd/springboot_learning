@@ -15,16 +15,18 @@ public class MybatisPlusConfig {
     /**
      * sequence主键，需要配置一个主键生成器
      * 配合实体类注解 {@link KeySequence} + {@link TableId} type=INPUT
+     *
      * @return
      */
 
     @Bean
-    public PostgreKeyGenerator keyGenerator(){
+    public PostgreKeyGenerator keyGenerator() {
         return new PostgreKeyGenerator();
     }
 
     /**
      * 分页1
+     *
      * @return
      */
     @Bean
@@ -34,6 +36,7 @@ public class MybatisPlusConfig {
 
     /**
      * 分页2
+     *
      * @return
      */
     @Bean
@@ -42,6 +45,20 @@ public class MybatisPlusConfig {
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.POSTGRE_SQL));
         return interceptor;
     }
+
+//    //配置MetaObjectHandler
+//    @Qualifier
+//    public MyMetaObjectHandler baseHandler() {
+//        return new MyMetaObjectHandler();
+//    }
+
+//    //配置MetaObjectHandler
+//    @Bean
+//    public GlobalConfig globalConfig() {
+//        GlobalConfig globalConfig = new GlobalConfig();
+//        globalConfig.setMetaObjectHandler(new MyMetaObjectHandler());
+//        return globalConfig;
+//    }
 
 //    @Bean
 //    public MybatisPlusInterceptor sqlExplainInterceptor(){

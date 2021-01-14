@@ -23,9 +23,5 @@ public class Businesses extends BaseEntity {
 
     private String content;
 
-    private String fromurl;
-
-    private String tourl;
-
 
 }
