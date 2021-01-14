@@ -1,8 +1,8 @@
 package com.menghuanwd.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import org.springframework.stereotype.Component;
 import org.apache.ibatis.reflection.MetaObject;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
@@ -20,7 +20,8 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 //        this.setFieldValByName("created_at", LocalDateTime.now(), metaObject);
 //        this.fillStrategy(metaObject, "created_at", LocalDateTime.now().toLocalTime());
         this.strictInsertFill(metaObject, "created_at", LocalDateTime.class, LocalDateTime.now());
-        this.strictInsertFill(metaObject, "updated_at", LocalDateTime.class, LocalDateTime.now());
+        this.strictInsertFill(metaObject, "content", String.class,"sssss");
+//        this.strictInsertFill(metaObject, "updated_at", LocalDateTime.class, LocalDateTime.now());
 //        }
     }
 

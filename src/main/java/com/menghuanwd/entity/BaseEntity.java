@@ -15,8 +15,9 @@ import java.time.LocalDateTime;
 public class BaseEntity {
     private Integer id;
 
-    @TableField(value = "created_at", fill = FieldFill.INSERT)
-    private LocalDateTime createdAt;
+//    @TableField(value = "created_at", fill = FieldFill.INSERT)
+//    @TableField(fill = FieldFill.INSERT)
+//    private LocalDateTime createdAt;
 
     @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateAt;

@@ -25,7 +25,7 @@ public class destroyTests {
 
     @Test
     public void deleteBusinessById() {
-        int rows = businessesDao.deleteById(6);
+        int rows = businessesDao.deleteById(4);
 
         System.out.println(rows);
     }
