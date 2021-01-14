@@ -36,7 +36,7 @@ public class BusinessesServiceImpl extends ServiceImpl<BusinessesMapper, Busines
     }
 
     @Override
-    public boolean save2(Businesses businesses) {
+    public boolean saveBusiness(Businesses businesses) {
         save(businesses);
 //        businesses.getName();
 

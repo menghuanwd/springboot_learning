@@ -35,7 +35,6 @@ public class BusinessesController {
      * @return
      */
     public String login(String username, String password){
-
         LoginDTO loginDTO = businessesService.login(username, password);
 
         return loginDTO.getBusinesses().getName();
@@ -54,7 +53,7 @@ public class BusinessesController {
     @PostMapping
     @ResponseBody
     public  R<Object> add(@RequestBody Businesses businesses) {
-        boolean success = BusinessesService.save2(businesses);
+        boolean success = businessesService.saveBusiness(businesses);
 
         return ResultUtil.buildR(success);
     }

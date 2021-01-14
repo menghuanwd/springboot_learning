@@ -14,5 +14,6 @@ import com.menghuanwd.springboot.entity.Businesses;
  */
 public interface BusinessesService extends IService<Businesses> {
     LoginDTO login(String username, String password);
-    boolean save2(Businesses businesses);
+
+    boolean saveBusiness(Businesses businesses);
 }
