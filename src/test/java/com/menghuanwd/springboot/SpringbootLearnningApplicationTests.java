@@ -1,7 +1,7 @@
 package com.menghuanwd.springboot;
 
 import com.menghuanwd.springboot.entity.User;
-import com.menghuanwd.springboot.mapper.UserMapper;
+import com.menghuanwd.springboot.dao.UserDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,7 @@ import java.util.List;
 public class SpringbootLearnningApplicationTests {
 
 	@Resource
-	private UserMapper userMapper;
+	private UserDao userMapper;
 
 	@Test
 	public void testSelect() {

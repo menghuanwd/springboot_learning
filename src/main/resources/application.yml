@@ -5,15 +5,11 @@ server:
 spring:
    datasource:
       driver-class-name: org.postgresql.Driver
-#      schema: classpath:db/schema-h2.sql
-#      data: classpath:db/data-h2.sql
       url: jdbc:postgresql://localhost:5432/push
       username: menghuanwd
       password: password
 
-#mybatis_config_file: mybatis-config.xml
-#mapper_path: /mapper/**.xml
-
+#  MybatisPlus Config
 mybatis-plus:
   type-aliases-package: com.menghuanwd.springboot.entity
   mapper-locations: classpath:/mapper/*Mapper.xml
@@ -21,15 +17,10 @@ mybatis-plus:
     db-config:
       id-type: auto
 
-## Logger Config
-#logging:
-#   pattern:
-#      console: '%p%m%n'
-#   level:
-#      com.baomidou.mybatisplus.samples: debug
-#      com.menghuanwd.dao: trace
-
 # Logger Config
 logging:
+  pattern:
+    console: '%p%m%n'
   level:
-    com.baomidou.mybatisplus.samples: debug
+    root: warn
+    com.menghuanwd.springboot.dao: trace

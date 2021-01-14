@@ -1,4 +1,4 @@
-package com.menghuanwd.springboot.mapper;
+package com.menghuanwd.springboot.dao;
 
 import com.menghuanwd.springboot.entity.Businesses;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author guyifeng
  * @since 2021-01-14
  */
-public interface BusinessesMapper extends BaseMapper<Businesses> {
+public interface BusinessesDao extends BaseMapper<Businesses> {
 
 }

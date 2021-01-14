@@ -55,6 +55,7 @@ public class CodeGenerator {
         gc.setAuthor("guyifeng");
         gc.setOpen(false);
         gc.isActiveRecord();
+        gc.setMapperName("%sDao");
         gc.setServiceName("%sService");
         gc.setFileOverride(true);
         gc.isActiveRecord();
@@ -74,6 +75,7 @@ public class CodeGenerator {
 //        pc.setModuleName(scanner("模块名"));
 //        pc.setParent("com.menghuanwd");
         pc.setParent("com.menghuanwd.springboot");
+        pc.setMapper("dao");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -133,10 +135,12 @@ public class CodeGenerator {
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
 
-        // 公共父类实体
-        strategy.setSuperEntityClass("com.menghuanwd.springboot.entity.BaseEntity");
-        // 写于父类中的公共字段 新版
-        strategy.setSuperEntityColumns(new String[] {"id","created_at", "updated_at"});
+        if(scanner("是否继承基类").equalsIgnoreCase("y")) {
+            // 公共父类实体
+            strategy.setSuperEntityClass("com.menghuanwd.springboot.entity.BaseEntity");
+            // 写于父类中的公共字段 新版
+            strategy.setSuperEntityColumns(new String[]{"id", "created_at", "updated_at"});
+        }
 
         strategy.setEntityLombokModel(true);
 //        restful json 格式
@@ -146,7 +150,6 @@ public class CodeGenerator {
 
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);
-
 
 //        逻辑删除
 //        strategy.setLogicDeleteFieldName("deleted_at");

@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.menghuanwd.springboot.mapper")
+@MapperScan("com.menghuanwd.springboot.dao")
 public class SpringbootLearnningApplication {
 
 	public static void main(String[] args) {

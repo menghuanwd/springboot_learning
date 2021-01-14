@@ -39,20 +39,21 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!--定时任务和@Slf4j注解日志的依赖-->
+		<!--简化java代码-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
 
+<!--		SpringBoot test 测试启动器-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 
-		<!--		mybatis-plus -->
+		<!-- mybatis-plus 启动器 -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
@@ -86,7 +87,7 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
-		<!-- 连接驱动依赖 -->
+		<!-- Postgres 驱动 -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>

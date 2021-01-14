@@ -3,7 +3,7 @@ package com.menghuanwd.springboot;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.menghuanwd.springboot.entity.User;
-import com.menghuanwd.springboot.mapper.UserMapper;
+import com.menghuanwd.springboot.dao.UserDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class updateTests {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserDao userMapper;
 
     @Test
     public void updatedById() {

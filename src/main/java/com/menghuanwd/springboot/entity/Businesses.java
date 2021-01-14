@@ -1,5 +1,6 @@
 package com.menghuanwd.springboot.entity;
 
+import com.menghuanwd.springboot.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

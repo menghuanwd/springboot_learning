@@ -1,8 +1,7 @@
 package com.menghuanwd.springboot.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.menghuanwd.springboot.dto.LoginDTO;
 import com.menghuanwd.springboot.entity.Businesses;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
@@ -13,7 +12,5 @@ import com.menghuanwd.springboot.entity.Businesses;
  * @since 2021-01-14
  */
 public interface BusinessesService extends IService<Businesses> {
-    LoginDTO login(String username, String password);
 
-    boolean saveBusiness(Businesses businesses);
 }

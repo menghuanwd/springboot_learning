@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.menghuanwd.springboot.entity.User;
-import com.menghuanwd.springboot.mapper.UserMapper;
+import com.menghuanwd.springboot.dao.UserDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import java.util.List;
 public class InsertTests {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserDao userDao;
 
     @Test
     public void insert() {
@@ -31,7 +31,7 @@ public class InsertTests {
         user.setMyEmail("22@qq.com");
         user.setRemark("remark");
 
-        int rows = userMapper.insert(user);
+        int rows = userDao.insert(user);
 
         System.out.println(rows);
     }
@@ -40,7 +40,7 @@ public class InsertTests {
     public void selectByWrapper() {
         QueryWrapper<User> queryWrapper = new QueryWrapper<User>();
         queryWrapper.like("name", "J").lt("age", 20);
-        List<User> userList = userMapper.selectList(queryWrapper);
+        List<User> userList = userDao.selectList(queryWrapper);
         userList.forEach(System.out::println);
     }
 
@@ -48,7 +48,7 @@ public class InsertTests {
     public void selectByWrapper2() {
         QueryWrapper<User> queryWrapper = new QueryWrapper<User>();
         queryWrapper.between("age", 20, 40).isNotNull("email");
-        List<User> userList = userMapper.selectList(queryWrapper);
+        List<User> userList = userDao.selectList(queryWrapper);
         userList.forEach(System.out::println);
     }
 
@@ -58,7 +58,7 @@ public class InsertTests {
 //        LambdaQueryWrapper<User> lambd3 =  new LambdaQueryWrapper<User>();
         LambdaQueryWrapper<User> lambda2 = Wrappers.<User>lambdaQuery();
         lambda2.like(User::getName, "g");
-        List<User> userList = userMapper.selectList(lambda2);
+        List<User> userList = userDao.selectList(lambda2);
 
         userList.forEach(System.out::println);
     }
@@ -66,7 +66,7 @@ public class InsertTests {
     @Test
     public void selectLambda2() {
         System.out.println("----selectLambda2------");
-        List<User> userList = new LambdaQueryChainWrapper<User>(userMapper).like(User::getName, "J").list();
+        List<User> userList = new LambdaQueryChainWrapper<User>(userDao).like(User::getName, "J").list();
 
         userList.forEach(System.out::println);
     }
@@ -81,7 +81,7 @@ public class InsertTests {
 
         Page<User> page = new Page<User>(2, 2);
 
-        IPage<User> iPage = userMapper.selectPage(page, queryWrapper);
+        IPage<User> iPage = userDao.selectPage(page, queryWrapper);
 
         System.out.println("总页数" + iPage.getPages());
         System.out.println("总记录数" + iPage.getTotal());
