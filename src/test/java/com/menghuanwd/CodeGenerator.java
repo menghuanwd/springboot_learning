@@ -132,8 +132,10 @@ public class CodeGenerator {
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
+
+//        从数据库表到文件的命名策略
         strategy.setNaming(NamingStrategy.underline_to_camel);
-        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
+        strategy.setColumnNaming(NamingStrategy.no_change);
 
         if(scanner("是否继承基类").equalsIgnoreCase("y")) {
             // 公共父类实体
@@ -157,10 +159,9 @@ public class CodeGenerator {
 //        填充
         ArrayList<TableFill> tableFills = new ArrayList<TableFill>();
         TableFill createdAt = new TableFill("created_at", FieldFill.INSERT);
-        TableFill updatedAt = new TableFill("updated_at", FieldFill.UPDATE);
+        TableFill updatedAt = new TableFill("updated_at", FieldFill.INSERT_UPDATE);
         tableFills.add(createdAt);
         tableFills.add(updatedAt);
-
 
         strategy.setTableFillList(tableFills);
 

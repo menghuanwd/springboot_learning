@@ -1,11 +1,7 @@
 package com.menghuanwd.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -13,7 +9,7 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author guyifeng
- * @since 2021-01-14
+ * @since 2021-01-15
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -25,10 +21,6 @@ public class Businesses extends BaseEntity {
 
     private String status;
 
-    @TableField(value = "created_at", fill = FieldFill.INSERT)
-    private LocalDateTime createdAt;
-
-    @TableField(fill = FieldFill.INSERT)
     private String content;
 
 

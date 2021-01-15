@@ -31,7 +31,7 @@ public class InsertTests {
     @Test
     public void insertBusiness() {
         Businesses user = new Businesses();
-        user.setName("aaa");
+        user.setName("aaa222");
 
         int rows = businessesDao.insert(user);
 

@@ -15,15 +15,14 @@ import java.time.LocalDateTime;
 public class BaseEntity {
     private Integer id;
 
-//    @TableField(value = "created_at", fill = FieldFill.INSERT)
-//    @TableField(fill = FieldFill.INSERT)
-//    private LocalDateTime createdAt;
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime created_at;
 
-    @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime updateAt;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updated_at;
 
     @TableLogic("NULL")
     @JsonIgnore
     @TableField
-    private LocalDateTime deletedAt;
+    private LocalDateTime deleted_at;
 }
