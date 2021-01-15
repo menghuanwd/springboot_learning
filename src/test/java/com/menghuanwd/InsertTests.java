@@ -30,10 +30,10 @@ public class InsertTests {
 
     @Test
     public void insertBusiness() {
-        Businesses user = new Businesses();
-        user.setName("aaa222");
+        Businesses businesses = new Businesses();
+        businesses.setName("aaa222");
 
-        int rows = businessesDao.insert(user);
+        int rows = businessesDao.insert(businesses);
 
         System.out.println(rows);
     }
