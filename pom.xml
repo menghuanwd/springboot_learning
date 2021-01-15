@@ -93,6 +93,13 @@
 			<artifactId>postgresql</artifactId>
 		</dependency>
 
+		<!--		sql打印信息-->
+		<dependency>
+			<groupId>p6spy</groupId>
+			<artifactId>p6spy</artifactId>
+			<version>3.9.1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

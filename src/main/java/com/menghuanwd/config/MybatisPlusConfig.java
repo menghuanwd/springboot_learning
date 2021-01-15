@@ -1,16 +1,23 @@
 package com.menghuanwd.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.annotation.KeySequence;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.incrementer.PostgreKeyGenerator;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MybatisPlusConfig {
+
+    /**
+     * 乐观锁
+     * @return
+     */
+    public OptimisticLockerInnerInterceptor optimisticLockerInnerInterceptor() {
+        return new OptimisticLockerInnerInterceptor();
+    }
 
     /**
      * sequence主键，需要配置一个主键生成器
@@ -45,20 +52,6 @@ public class MybatisPlusConfig {
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.POSTGRE_SQL));
         return interceptor;
     }
-
-//    //配置MetaObjectHandler
-//    @Qualifier
-//    public MyMetaObjectHandler baseHandler() {
-//        return new MyMetaObjectHandler();
-//    }
-
-//    //配置MetaObjectHandler
-//    @Bean
-//    public GlobalConfig globalConfig() {
-//        GlobalConfig globalConfig = new GlobalConfig();
-//        globalConfig.setMetaObjectHandler(new MyMetaObjectHandler());
-//        return globalConfig;
-//    }
 
 //    @Bean
 //    public MybatisPlusInterceptor sqlExplainInterceptor(){

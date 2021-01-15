@@ -1,5 +1,6 @@
 package com.menghuanwd.entity;
 
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -23,5 +24,7 @@ public class Businesses extends BaseEntity {
 
     private String content;
 
+    @Version
+    private Integer version;
 
 }
