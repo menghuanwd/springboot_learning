@@ -1,7 +1,7 @@
 package com.menghuanwd;
 
-import com.menghuanwd.entity.User;
 import com.menghuanwd.dao.UserDao;
+import com.menghuanwd.entity.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
